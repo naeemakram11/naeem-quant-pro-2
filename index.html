@@ -1,2 +1,377 @@
-# naeem-quant-pro-2
-Professional SMC Trading Dashboard with Live Market Charts, Risk Calculator, Trading Signals, and MT5 Integration Ready.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>NAEEM QUANT PRO</title>
+
+<style>
+:root {
+  --bg:#080d18;
+  --panel:#101a2b;
+  --border:#24334a;
+  --blue:#38bdf8;
+  --green:#22c55e;
+  --red:#ef4444;
+  --muted:#91a1b8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:#eef5ff;
+  font-family:Arial, sans-serif;
+}
+header {
+  padding:22px 16px;
+  background:#0d1525;
+  border-bottom:1px solid var(--border);
+}
+.brand { font-size:25px; font-weight:800; color:var(--blue); }
+.subtitle { color:var(--muted); margin-top:7px; font-size:13px; }
+main { max-width:1250px; margin:auto; padding:15px; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.card {
+  min-width:0;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--panel);
+  margin-bottom:14px;
+}
+.wide { grid-column:1/-1; }
+h2 { font-size:17px; margin:0 0 15px; }
+h3 { font-size:14px; margin:15px 0 8px; }
+.muted { color:var(--muted); font-size:12px; line-height:1.6; }
+.stat {
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#0b1322;
+}
+.stat strong { display:block; font-size:18px; margin-top:8px; }
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:15px;
+}
+label { display:block; color:#b9c7da; font-size:12px; margin:12px 0 6px; }
+input,select {
+  width:100%;
+  padding:11px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  color:white;
+  background:#091221;
+  font-size:14px;
+}
+button {
+  padding:11px 14px;
+  border:0;
+  border-radius:8px;
+  background:#0284c7;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:12px;
+}
+button:active { opacity:.8; }
+.green { color:var(--green); }
+.red { color:var(--red); }
+.blue { color:var(--blue); }
+.pill {
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:6px;
+  background:#17263a;
+  color:#b7dfff;
+  font-size:11px;
+  margin:3px;
+}
+.chart {
+  width:100%;
+  height:470px;
+  border:0;
+  border-radius:8px;
+  background:#080d18;
+}
+.result {
+  margin-top:12px;
+  padding:12px;
+  border-radius:8px;
+  background:#091221;
+  line-height:1.8;
+  overflow-wrap:anywhere;
+}
+.checkline {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:12px 0;
+  font-size:13px;
+}
+.checkline input { width:auto; }
+footer {
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:650px) {
+  .grid { grid-template-columns:1fr; }
+  .wide { grid-column:auto; }
+  .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .chart { height:390px; }
+  .brand { font-size:22px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="brand">NAEEM QUANT PRO</div>
+  <div class="subtitle">
+    SMART MONEY CONCEPTS · MARKET ANALYSIS · RISK MANAGEMENT
+  </div>
+  <p><span class="pill">SMC DASHBOARD</span>
+     <span class="pill">TRADINGVIEW CHART</span>
+     <span class="pill">MT5 READY FOR INTEGRATION</span></p>
+</header>
+
+<main>
+  <div class="stats">
+    <div class="stat">
+      <span class="muted">Platform</span>
+      <strong class="blue">ONLINE UI</strong>
+    </div>
+    <div class="stat">
+      <span class="muted">Chart provider</span>
+      <strong>TradingView</strong>
+    </div>
+    <div class="stat">
+      <span class="muted">Trade execution</span>
+      <strong class="red">DISCONNECTED</strong>
+    </div>
+    <div class="stat">
+      <span class="muted">Risk tool</span>
+      <strong class="green">AVAILABLE</strong>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Live Market Chart</h2>
+      <p class="muted">
+        Use the symbol controls inside the chart to select an instrument
+        and timeframe. Live data availability depends on the provider
+        and exchange.
+      </p>
+      <iframe
+        class="chart"
+        title="TradingView market chart"
+        src="https://www.tradingview.com/widgetembed/?symbol=BINANCE%3ABTCUSDT&interval=15&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&symboledit=1&allow_symbol_change=1&saveimage=1&toolbarbg=%230f172a&locale=en"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>SMC Analysis Dashboard</h2>
+      <p class="muted">
+        Mark these concepts after analyzing your chart. These labels
+        are not automatically detected by this static website.
+      </p>
+
+      <div><span class="pill">BOS</span> Break of Structure</div>
+      <div><span class="pill">CHoCH</span> Change of Character</div>
+      <div><span class="pill">OB</span> Order Block</div>
+      <div><span class="pill">FVG</span> Fair Value Gap</div>
+      <div><span class="pill">LIQUIDITY</span> Highs and lows</div>
+
+      <label>Market bias</label>
+      <select id="bias">
+        <option value="bullish">Bullish</option>
+        <option value="bearish">Bearish</option>
+        <option value="neutral" selected>Neutral</option>
+      </select>
+
+      <label>Structure confirmation</label>
+      <select id="structure">
+        <option value="none">No confirmed BOS / CHoCH</option>
+        <option value="bos">BOS confirmed</option>
+        <option value="choch">CHoCH confirmed</option>
+      </select>
+
+      <label>Price at a relevant zone?</label>
+      <select id="zone">
+        <option value="no">No / not confirmed</option>
+        <option value="yes">Yes — OB or FVG</option>
+      </select>
+
+      <label>Liquidity sweep confirmed?</label>
+      <select id="sweep">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <button onclick="checkSignal()">Check Setup</button>
+      <div id="signalResult" class="result">
+        Waiting for your analysis.
+      </div>
+      <p class="muted">
+        Checklist output only. It does not read chart candles or
+        generate verified live trading signals.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Risk Calculator</h2>
+
+      <label>Account balance ($)</label>
+      <input id="balance" type="number" min="0.01"
+             value="1000" step="any">
+
+      <label>Risk per trade (%)</label>
+      <input id="risk" type="number" min="0.01"
+             max="100" value="1" step="any">
+
+      <label>Entry price</label>
+      <input id="entry" type="number" min="0"
+             value="100" step="any">
+
+      <label>Stop-loss price</label>
+      <input id="stop" type="number" min="0"
+             value="98" step="any">
+
+      <label>Take-profit risk/reward ratio</label>
+      <select id="rr">
+        <option value="1">1:1</option>
+        <option value="2" selected>1:2</option>
+        <option value="3">1:3</option>
+      </select>
+
+      <button onclick="calculateRisk()">Calculate Position</button>
+      <div id="riskResult" class="result">
+        Enter your values and calculate.
+      </div>
+      <p class="muted">
+        Position units are a basic estimate, not guaranteed broker
+        lot sizes. Contract specifications, leverage, fees and
+        currency conversion can change the actual risk.
+      </p>
+    </section>
+
+    <section class="card wide">
+      <h2>MT5 Automated Trading Connection</h2>
+      <p class="muted">
+        Status: Not connected. This GitHub website cannot directly
+        execute trades in MetaTrader 5.
+      </p>
+      <div class="result">
+        <p>1. Set up a separate computer or server running MT5.</p>
+        <p>2. Create and test an Expert Advisor or a secure Python
+           trading bridge.</p>
+        <p>3. Send validated signals to that service through a
+           protected API.</p>
+        <p>4. Add authentication, position limits, stop-loss rules
+           and a kill switch before enabling live orders.</p>
+      </div>
+
+      <label class="checkline">
+        <input id="demoMode" type="checkbox" checked>
+        I understand this dashboard is not connected to a live broker.
+      </label>
+      <button onclick="showMT5Status()">Check Connection Status</button>
+      <div id="mt5Result" class="result">
+        No MT5 connection configured.
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  NAEEM QUANT PRO · Educational trading tools ·
+  Not financial advice · No real orders are placed by this page.
+</footer>
+
+<script>
+function calculateRisk() {
+  const balance = Number(document.getElementById("balance").value);
+  const risk = Number(document.getElementById("risk").value);
+  const entry = Number(document.getElementById("entry").value);
+  const stop = Number(document.getElementById("stop").value);
+  const rr = Number(document.getElementById("rr").value);
+  const output = document.getElementById("riskResult");
+
+  if (!Number.isFinite(balance) || balance <= 0 ||
+      !Number.isFinite(risk) || risk <= 0 || risk > 100 ||
+      !Number.isFinite(entry) || entry <= 0 ||
+      !Number.isFinite(stop) || stop <= 0 || entry === stop) {
+    output.textContent =
+      "Please enter a positive balance, a risk between 0 and 100%, " +
+      "and valid entry and stop-loss prices that differ.";
+    return;
+  }
+
+  const riskAmount = balance * risk / 100;
+  const priceDistance = Math.abs(entry - stop);
+  const estimatedUnits = riskAmount / priceDistance;
+  const targetDistance = priceDistance * rr;
+  const target = entry > stop
+    ? entry + targetDistance
+    : entry - targetDistance;
+
+  output.innerHTML =
+    "<strong>Maximum planned risk:</strong> $" +
+    riskAmount.toFixed(2) +
+    "<br><strong>Entry-to-stop distance:</strong> " +
+    priceDistance.toFixed(5) +
+    "<br><strong>Estimated units:</strong> " +
+    estimatedUnits.toFixed(5) +
+    "<br><strong>Target price at 1:" + rr + ":</strong> " +
+    target.toFixed(5) +
+    "<br><span class='muted'>Illustrative calculation only. " +
+    "Confirm the instrument's contract size and broker rules.</span>";
+}
+
+function checkSignal() {
+  const bias = document.getElementById("bias").value;
+  const structure = document.getElementById("structure").value;
+  const zone = document.getElementById("zone").value;
+  const sweep = document.getElementById("sweep").value;
+  const output = document.getElementById("signalResult");
+
+  if (bias === "neutral" || structure === "none" ||
+      zone !== "yes" || sweep !== "yes") {
+    output.innerHTML =
+      "<strong class='blue'>WAIT — setup not fully confirmed.</strong>" +
+      "<br>Review market structure, the relevant zone and liquidity. " +
+      "Do not treat missing confirmations as an entry.";
+    return;
+  }
+
+  output.innerHTML =
+    "<strong class='" + (bias === "bullish" ? "green" : "red") +
+    "'>" + (bias === "bullish" ? "BULLISH" : "BEARISH") +
+    " CHECKLIST MATCH</strong><br>" +
+    "Your selected conditions match your chosen bias. " +
+    "This is not a verified market signal or an order instruction. " +
+    "Check the chart, risk and news before making any decision.";
+}
+
+function showMT5Status() {
+  document.getElementById("mt5Result").textContent =
+    "MT5 is not connected. No account was authenticated and " +
+    "no orders can be placed from this GitHub page.";
+}
+
+calculateRisk();
+</script>
+</body>
+</html>
